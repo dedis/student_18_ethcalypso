@@ -3,48 +3,28 @@ package gocontracts
 import (
 	"context"
 	"crypto/ecdsa"
-	"fmt"
 	"log"
-	"math/big"
 
 	"github.com/dedis/cothority"
 	"github.com/dedis/kyber"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func ServiceDeployWriteRequest(privateKey *ecdsa.PrivateKey, client *ethclient.Client, d []byte, ed []byte, ltsid []byte, p []common.Address, U []byte, cs [][]byte) (common.Address, *types.Transaction, *WriteRequest, error) {
-	publicKey := privateKey.Public()
-	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
-	if !ok {
-		log.Fatal("error casting public key to ECDSA")
+func ServiceDeployWriteRequest(privateKey *ecdsa.PrivateKey, client *ethclient.Client, d []byte, ed []byte, ltsid []byte, p common.Address, U []byte, cs [][]byte, Ubar []byte, F []byte, E []byte, nonce uint64) (common.Address, *types.Transaction, *WriteRequest, error) {
+	auth, e := GetAuth(privateKey, client, nonce)
+	if e != nil {
+		log.Fatal(e)
 	}
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	fromAddress := crypto.PubkeyToAddress(*publicKeyECDSA)
-	nonce, err := client.PendingNonceAt(ctx, fromAddress)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	gasPrice, err := client.SuggestGasPrice(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	auth := bind.NewKeyedTransactor(privateKey)
-	auth.Nonce = big.NewInt(int64(nonce))
-	auth.Value = big.NewInt(0)      // in wei
-	auth.GasLimit = uint64(4712388) // in units
-	auth.GasPrice = gasPrice
 	temp := make([]byte, 0)
+	slice := make([]int64, 1)
+	slice[0] = 0
 	for j := 0; j < len(cs); j++ {
 		temp = append(temp, cs[j]...)
+		slice = append(slice, int64(len(cs[j])))
 	}
-	address, tx, instance, err := DeployWriteRequest(auth, client, d, ed, ltsid, p, U, temp, int64(len(cs)))
+	address, tx, instance, err := DeployWriteRequest(auth, client, d, ed, ltsid, p, U, temp, slice, F, E, Ubar)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -60,6 +40,9 @@ type Write struct {
 	U         kyber.Point
 	LTSID     []byte
 	Cs        []kyber.Point
+	Ubar      kyber.Point
+	E         kyber.Scalar
+	F         kyber.Scalar
 }
 
 func ServiceGetWriteRequest(privateKey *ecdsa.PrivateKey, client *ethclient.Client, a common.Address) (*Write, error) {
@@ -91,18 +74,25 @@ func ServiceGetWriteRequest(privateKey *ecdsa.PrivateKey, client *ethclient.Clie
 	if e != nil {
 		return nil, e
 	}
-	split, e := wrCaller.Split(call)
+	slice, e := wrCaller.GetSlice(call)
 	if e != nil {
 		return nil, e
 	}
-	fmt.Println("Split ", split)
-	temp := make([][]byte, 0)
-	n := int64(len(Cs)) / split
-	for i := int64(0); i < split-1; i++ {
-		temp = append(temp, Cs[i*n:i*(n+1)])
+	ubData, e := wrCaller.Ubar(call)
+	if e != nil {
+		return nil, e
 	}
-	if int64(len(Cs)) == n {
-		temp = append(temp, Cs)
+	fData, e := wrCaller.F(call)
+	if e != nil {
+		return nil, e
+	}
+	eData, e := wrCaller.E(call)
+	if e != nil {
+		return nil, e
+	}
+	temp := make([][]byte, 0)
+	for i := 0; i < len(slice)-1; i++ {
+		temp = append(temp, Cs[slice[i]:slice[i+1]])
 	}
 	points := make([]kyber.Point, 0)
 	for i := 0; i < len(temp); i++ {
@@ -118,12 +108,28 @@ func ServiceGetWriteRequest(privateKey *ecdsa.PrivateKey, client *ethclient.Clie
 	if e != nil {
 		return nil, e
 	}
+	Ubar := cothority.Suite.Point()
+	e = Ubar.UnmarshalBinary(ubData)
+	F := cothority.Suite.Scalar()
+	e = F.UnmarshalBinary(fData)
+
+	if e != nil {
+		return nil, e
+	}
+	E := cothority.Suite.Scalar()
+	e = E.UnmarshalBinary(eData)
+	if e != nil {
+		return nil, e
+	}
 	write := &Write{
 		Data:      data,
 		ExtraData: ed,
 		U:         point,
 		LTSID:     ltsid,
 		Cs:        points,
+		Ubar:      Ubar,
+		E:         E,
+		F:         F,
 	}
 	return write, nil
 }

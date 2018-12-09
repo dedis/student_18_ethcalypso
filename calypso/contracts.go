@@ -1,16 +1,5 @@
 package calypso
 
-import (
-	"errors"
-
-	"github.com/dedis/cothority"
-	"github.com/dedis/cothority/byzcoin"
-	"github.com/dedis/cothority/darc"
-	"github.com/dedis/onet/log"
-	"github.com/dedis/onet/network"
-	"github.com/dedis/protobuf"
-)
-
 // ContractWriteID references a write contract system-wide.
 var ContractWriteID = "calypsoWrite"
 
@@ -20,7 +9,7 @@ var ContractWriteID = "calypsoWrite"
 // Accepted Instructions:
 //  - spawn:calypsoWrite creates a new write-request. TODO: verify the LTS exists
 //  - spawn:calypsoRead creates a new read-request for this write-request.
-func (s *Service) ContractWrite(cdb byzcoin.CollectionView, inst byzcoin.Instruction, c []byzcoin.Coin) ([]byzcoin.StateChange, []byzcoin.Coin, error) {
+/*func (s *Service) ContractWrite(cdb byzcoin.CollectionView, inst byzcoin.Instruction, c []byzcoin.Coin) ([]byzcoin.StateChange, []byzcoin.Coin, error) {
 	err := inst.VerifyDarcSignature(cdb)
 	if err != nil {
 		return nil, nil, err
@@ -68,7 +57,7 @@ func (s *Service) ContractWrite(cdb byzcoin.CollectionView, inst byzcoin.Instruc
 	default:
 		return nil, nil, errors.New("asked for something we cannot do")
 	}
-}
+}*/
 
 // ContractReadID references a read contract system-wide.
 var ContractReadID = "calypsoRead"
@@ -82,7 +71,7 @@ var ContractReadID = "calypsoRead"
 // TODO: correctly handle multi signatures for read requests: to whom should the
 // secret be re-encrypted to? Perhaps for multi signatures we only want to have
 // ephemeral keys.
-func (s *Service) ContractRead(cdb byzcoin.CollectionView, inst byzcoin.Instruction, c []byzcoin.Coin) ([]byzcoin.StateChange, []byzcoin.Coin, error) {
+/*func (s *Service) ContractRead(cdb byzcoin.CollectionView, inst byzcoin.Instruction, c []byzcoin.Coin) ([]byzcoin.StateChange, []byzcoin.Coin, error) {
 	err := inst.VerifyDarcSignature(cdb)
 	if err != nil {
 		return nil, nil, err
@@ -120,4 +109,4 @@ func (s *Service) ContractRead(cdb byzcoin.CollectionView, inst byzcoin.Instruct
 		return nil, nil, errors.New("not a spawn instruction")
 	}
 
-}
+}*/

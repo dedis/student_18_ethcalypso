@@ -13,8 +13,3 @@ npm install -g mocha
 
 go get -u ./...
 
-cd $HOME/go/src/github.com/ethereum/go-ethereum ; make
-
-cd $HOME/go/src/github.com/ethereum/go-ethereum ; make devtools
-
-abigen --sol ethac/contracts/Calypso.sol --pkg gocontracts > ethac/gocontracts/Calypso.go

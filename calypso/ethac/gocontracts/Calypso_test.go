@@ -4,12 +4,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dedis/cothority"
-	"github.com/dedis/student_18_ethcalypso/calypso/ethereum"
 	"github.com/stretchr/testify/require"
 )
 
-func TestAddAWriteRequest(t *testing.T) {
+/*func TestAddAWriteRequest(t *testing.T) {
 	client, e := ethereum.GetClient()
 	require.Nil(t, e)
 	privateKey, e := ethereum.GetPrivateKey()
@@ -25,6 +23,7 @@ func TestAddAWriteRequest(t *testing.T) {
 	policy := ethereum.GetTestListOfAddresses()
 	addr, _, _, e := ServiceDeployWriteRequest(privateKey, client, data, ed, ltsid, policy, u, cs)
 	require.Nil(t, e)
+	fmt.Println("Address of write ", addr)
 	//Now we check that it got deployed
 	wr, e := ServiceGetWriteRequest(privateKey, client, addr)
 	require.Nil(t, e)
@@ -32,14 +31,15 @@ func TestAddAWriteRequest(t *testing.T) {
 	require.Equal(t, "Sabrina", string(wr.LTSID))
 	//Check that we still have the same points
 	require.True(t, wr.U.Equal(point))
-}
+}*/
+
 func TestEmptyCalypso(t *testing.T) {
 	a, e := GetStaticCalypso()
 	fmt.Println("Address of claypso", (*a).Hex())
 	require.Nil(t, e)
 }
 
-func TestAddReadRequestToCalypso(t *testing.T) {
+/*func TestAddReadRequestToCalypso(t *testing.T) {
 	client, e := ethereum.GetClient()
 	require.Nil(t, e)
 	privateKey, e := ethereum.GetPrivateKey()
@@ -63,7 +63,6 @@ func TestAddReadRequestToCalypso(t *testing.T) {
 	fakeAddr, _, _, e := ServiceDeployReadRequest(privateKey, client, policy[0], Xc)
 	require.Nil(t, e)
 	_, e = ServiceAddReadRequest(privateKey, *calypsoAddr, fakeAddr, client)
-	fmt.Println("Address of Calypso", (*calypsoAddr).Hex())
 	require.NotNil(t, e)
 	//Now to make try and make a transaction to the blockchain while not being a registered owner
 	fakePrivateKey, e := ethereum.GetAnotherPrivateKey()
@@ -74,16 +73,4 @@ func TestAddReadRequestToCalypso(t *testing.T) {
 	require.NotNil(t, e)
 	canRead := ServiceCheckIfCanRead(privateKey, *calypsoAddr, rr, client)
 	require.True(t, canRead)
-}
-
-func GetMockWriteRequest(t *testing.T) ([]byte, []byte, []byte, []byte, [][]byte) {
-	data := []byte("Bjorn is a cool dude")
-	ed := []byte("Bjorn is an extra cool dude")
-	ltsid := []byte("Sabrina")
-	point := cothority.Suite.Point()
-	u, e := point.MarshalBinary()
-	require.Nil(t, e)
-	cs := make([][]byte, 0)
-	cs = append(cs, u)
-	return data, ed, ltsid, u, cs
-}
+}*/

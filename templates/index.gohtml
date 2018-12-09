@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <h1> Bjorn </h1>
+
+    <p name="text" id="LTSReply" type="text"></p>
+    <form action="/GetLTSID" method="post" id="LTSIDform">
+      <Button type="submit" > Get LTSID </button>
+    </form>
+
+    <h1>Add a write request</h1>
+    <form method="post" name="Write" action="/AddWrite" id="WriteForm">
+      <input name="LTSID" id="LTSID" type="text" placeholder="LTSID">
+      <br>
+      <input name="X" id="X" type="text" placeholder="X">
+      <br>
+      <input name="data" id="data" type="text" placeholder="Your data">
+      <br>
+      <Button type="submit" > Add a write Request </button>
+    </form>
+    <h1 id="WriteAddress"></h1>
+    <form method="post" name="Write" action="/AddRead" id="ReadForm">
+      <input name="write" id="write" type="text" placeholder="Write address">
+      <br>
+      <Button type="submit" > Add a write Request </button>
+    </form>
+    <h1 id="ReadAddress"></h1>
+    <h1 id="Secret"></h1>
+    <script src="/GetScript"></script>
+</body>
+</html>

@@ -1,43 +1,21 @@
 package gocontracts
 
 import (
-	"context"
 	"crypto/ecdsa"
-	"errors"
 	"log"
-	"math/big"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func ServiceDeployOwners(privateKey *ecdsa.PrivateKey, client *ethclient.Client) (common.Address, *types.Transaction, *Owners, error) {
-	publicKey := privateKey.Public()
-	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
-	if !ok {
-		log.Fatal("error casting public key to ECDSA")
-	}
-	fromAddress := crypto.PubkeyToAddress(*publicKeyECDSA)
-	nonce, err := client.PendingNonceAt(context.Background(), fromAddress)
-	if err != nil {
-		log.Fatal(err)
+func ServiceDeployOwners(privateKey *ecdsa.PrivateKey, client *ethclient.Client, a []common.Address, nonce uint64) (common.Address, *types.Transaction, *Owners, error) {
+	auth, e := GetAuth(privateKey, client, nonce)
+	if e != nil {
+		log.Fatal(e)
 	}
 
-	gasPrice, err := client.SuggestGasPrice(context.Background())
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	auth := bind.NewKeyedTransactor(privateKey)
-	auth.Nonce = big.NewInt(int64(nonce))
-	auth.Value = big.NewInt(0)      // in wei
-	auth.GasLimit = uint64(4712388) // in units
-	auth.GasPrice = gasPrice
-
-	address, tx, instance, err := DeployOwners(auth, client)
+	address, tx, instance, err := DeployOwners(auth, client, a)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -49,28 +27,14 @@ func ServiceUpdatOwners(a common.Address, deployed common.Address, client *ethcl
 	if e != nil {
 		return nil, e
 	}
-	publicKey := privateKey.Public()
-	publicKeyECDSA, ok := publicKey.(*ecdsa.PublicKey)
-	if !ok {
-		return nil, errors.New("something went wrong")
+	nonce, e := GetNonce(privateKey, client)
+	if e != nil {
+		return nil, e
 	}
-
-	fromAddress := crypto.PubkeyToAddress(*publicKeyECDSA)
-	nonce, err := client.PendingNonceAt(context.Background(), fromAddress)
-	if err != nil {
-		return nil, err
+	auth, e := GetAuth(privateKey, client, nonce)
+	if e != nil {
+		return nil, e
 	}
-
-	gasPrice, err := client.SuggestGasPrice(context.Background())
-	if err != nil {
-		return nil, err
-	}
-	auth := bind.NewKeyedTransactor(privateKey)
-	auth.From = fromAddress
-	auth.Nonce = big.NewInt(int64(nonce))
-	auth.Value = big.NewInt(0)      // in wei
-	auth.GasLimit = uint64(4712388) // in units
-	auth.GasPrice = gasPrice
 	tx, e := calypsoTransActor.AddOwner(auth, a)
 	return tx, e
 }

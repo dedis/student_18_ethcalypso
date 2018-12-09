@@ -1,4 +1,5 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.1;
+import "./Policy.sol";
 
 contract WriteRequest {
     bytes public data;
@@ -9,26 +10,38 @@ contract WriteRequest {
     
     bytes public U;
 
+    bytes public Ubar;
+
+    bytes public E;
+
+    bytes public F;
+
+    bytes public X;
+
     bytes public Cs;
 
-    address[] private policy;
+    Policy private policy;
 
-    //This is to know how to split the array
-    //Because constructing multi-dimensional 
-    //arrays is kind of clunky
-    int64 public split;
+    int64[] public slice;
 
-    constructor(bytes d, bytes ed, bytes l, address[] p, bytes u, bytes cs, int64 s) public {
+    constructor(bytes memory d, bytes memory ed, bytes memory l, address p, bytes memory u, bytes memory cs, int64[] memory sl, bytes memory f, bytes memory e, bytes memory ub) public {
         data = d;
         extraData = ed;
         LTSID = l;
-        policy = p;
+        policy = Policy(p);
         U = u;
         Cs = cs;
-        split = s;
+        slice = sl;
+        F = f;
+        E = e;
+        Ubar = ub;
     }
 
-    function getPolicySize() public returns (uint256) {
-        return policy.length;
+    function CanRead(address a) public view returns(bool) {
+        return policy.CanRead(a);
+    }
+
+    function GetSlice() public view returns(int64[] memory) {
+        return slice;
     }
 }

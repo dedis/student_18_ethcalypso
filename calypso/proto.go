@@ -2,7 +2,6 @@ package calypso
 
 import (
 	"github.com/dedis/cothority/byzcoin"
-	"github.com/dedis/cothority/skipchain"
 	"github.com/dedis/kyber"
 	"github.com/dedis/onet"
 	"github.com/ethereum/go-ethereum/common"
@@ -64,8 +63,10 @@ type Read struct {
 type CreateLTS struct {
 	// Roster is the list of nodes that should participate in the DKG.
 	Roster onet.Roster
-	// BCID is the ID of the ByzCoin ledger that can use this LTS.
-	BCID skipchain.SkipBlockID
+
+	//CalypsoAddress is the address of the deployed CalypsoAddress
+	//Where this LTS will store the writes and read.
+	CalypsoAddress common.Address
 }
 
 // CreateLTSReply is returned upon successfully setting up the distributed
@@ -79,6 +80,14 @@ type CreateLTSReply struct {
 	// an LTS?
 }
 
+type LogAddressReply struct {
+	Added bool
+}
+
+type LogAddress struct {
+	A common.Address
+}
+
 // DecryptKey is sent by a reader after he successfully stored a 'Read' request
 // in byzcoin Client.
 type DecryptKey struct {
@@ -86,6 +95,8 @@ type DecryptKey struct {
 	Read common.Address
 	// Write is the proof containing the write request.
 	Write common.Address
+	//ReadHash is the hash of the read request transaction
+	ReadHash common.Hash
 }
 
 // DecryptKeyReply is returned if the service verified successfully that the

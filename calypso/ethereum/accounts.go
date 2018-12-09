@@ -9,10 +9,13 @@ import (
 
 var addresses []common.Address
 
+const localPrivateKey string = "1944dae12efeb1b1107dc1f3c7a459a01d865fff1c4b43a26f1755876aa1b820"
+const privateKey string = "e9a7601bfa9e9129095663c259370c1477c641c92abfdee34e6575d009e7d4f7"
+
 //GetPrivateKey returns a privatekey where it is possible
 //to send transactions from
 func GetPrivateKey() (*ecdsa.PrivateKey, error) {
-	return crypto.HexToECDSA("1944dae12efeb1b1107dc1f3c7a459a01d865fff1c4b43a26f1755876aa1b820")
+	return crypto.HexToECDSA(privateKey)
 }
 
 //GetAnotherPrivateKey is a function that returns an

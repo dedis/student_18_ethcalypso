@@ -10,12 +10,13 @@ import (
 var calypsoAddr *common.Address
 var calypsoError error
 
-func init() {
+func deploy() {
+	/*c := common.HexToAddress("0x86D3Fb6137e53664Eb7ff0e272fCB6eeb2BBC846")
+	calypsoAddr = &c*/
 	if calypsoAddr != nil {
 		fmt.Println("whaddup")
 		return
 	}
-	fmt.Println("Is it always nil")
 	policy := ethereum.GetTestListOfAddresses()
 	privateKey, e := ethereum.GetPrivateKey()
 	if e != nil {
@@ -29,17 +30,9 @@ func init() {
 	if calypsoAddr == nil && calypsoError == nil {
 		fmt.Println("what is going on")
 	}
-	owners := ethereum.GetTestListOfAddresses()
-	for _, owner := range owners {
-		_, e = ServiceUpdatOwners(owner, *calypsoAddr, client, privateKey)
-		if e != nil {
-			calypsoAddr = nil
-			calypsoError = e
-			return
-		}
-	}
 }
 
 func GetStaticCalypso() (*common.Address, error) {
+	deploy()
 	return calypsoAddr, calypsoError
 }

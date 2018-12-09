@@ -8,6 +8,7 @@ import (
 	"github.com/dedis/cothority/skipchain"
 	"github.com/dedis/onet"
 	"github.com/dedis/onet/log"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 const dbVersion = 1
@@ -18,10 +19,12 @@ var storageKey = []byte("storage")
 
 // storage1 is used to save all elements of the DKG.
 type storage1 struct {
-	Shared  map[string]*dkgprotocol.SharedSecret
-	Polys   map[string]*pubPoly
-	Rosters map[string]*onet.Roster
-	OLIDs   map[string]skipchain.SkipBlockID
+	Shared            map[string]*dkgprotocol.SharedSecret
+	Polys             map[string]*pubPoly
+	Rosters           map[string]*onet.Roster
+	OLIDs             map[string]skipchain.SkipBlockID
+	ContractAddresses map[string]common.Address
+	ContractTx        map[string][]byte
 
 	sync.Mutex
 }

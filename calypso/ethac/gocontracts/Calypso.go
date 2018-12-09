@@ -17,7 +17,7 @@ import (
 const CalypsoABI = "[{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"addWriteRequest\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"ownersMap\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"canWrite\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"checkIfRequestIsValid\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"isValidReadRequest\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"AddOwner\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"AddReadRequest\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"holder\",\"type\":\"address\"},{\"name\":\"rrholder\",\"type\":\"address\"},{\"name\":\"o\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
 
 // CalypsoBin is the compiled bytecode used for deploying new contracts.
-const CalypsoBin = `0x608060405234801561001057600080fd5b506040516060806106b983398101604090815281516020830151919092015160008054600160a060020a0319908116600160a060020a039384161782556001805482169584169590951790945560038054909416919092161790915561063d90819061007c90396000f3006080604052600436106100825763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631029a017811461008757806319a444b7146100aa5780633239b71b146100df5780634a4e19d314610100578063778ad09c14610121578063ac1e9ef414610142578063bdae9b8914610163575b600080fd5b34801561009357600080fd5b506100a8600160a060020a0360043516610184565b005b3480156100b657600080fd5b506100cb600160a060020a036004351661027c565b604080519115158252519081900360200190f35b3480156100eb57600080fd5b506100cb600160a060020a0360043516610291565b34801561010c57600080fd5b506100cb600160a060020a03600435166102af565b34801561012d57600080fd5b506100cb600160a060020a036004351661034c565b34801561014e57600080fd5b506100a8600160a060020a03600435166103b7565b34801561016f57600080fd5b506100a8600160a060020a03600435166103db565b61018d33610291565b15156101fa57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601e60248201527f596f7520617265206e6f7420612072656769737465726564206f776e65720000604482015290519081900360640190fd5b600154604080517f1029a017000000000000000000000000000000000000000000000000000000008152600160a060020a03848116600483015291519190921691631029a01791602480830192600092919082900301818387803b15801561026157600080fd5b505af1158015610275573d6000803e3d6000fd5b5050505050565b60046020526000908152604090205460ff1681565b600160a060020a031660009081526004602052604090205460ff1690565b600154604080517f42087d4f000000000000000000000000000000000000000000000000000000008152600160a060020a038481166004830152915160009392909216916342087d4f9160248082019260209290919082900301818787803b15801561031a57600080fd5b505af115801561032e573d6000803e3d6000fd5b505050506040513d602081101561034457600080fd5b505192915050565b600354604080517ffd6336dc000000000000000000000000000000000000000000000000000000008152600160a060020a0384811660048301529151600093929092169163fd6336dc9160248082019260209290919082900301818787803b15801561031a57600080fd5b600160a060020a03166000908152600460205260409020805460ff19166001179055565b60008082915081600160a060020a03166364e94e676040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561043857600080fd5b505af115801561044c573d6000803e3d6000fd5b505050506040513d602081101561046257600080fd5b5051600154604080517f42087d4f000000000000000000000000000000000000000000000000000000008152600160a060020a03808516600483015291519394509116916342087d4f916024808201926020929091908290030181600087803b1580156104ce57600080fd5b505af11580156104e2573d6000803e3d6000fd5b505050506040513d60208110156104f857600080fd5b5051151561058d57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602760248201527f5468657265206973206e6f20636f72726573706f6e64696e672077726974652060448201527f7265717565737400000000000000000000000000000000000000000000000000606482015290519081900360840190fd5b600354604080517f31419b50000000000000000000000000000000000000000000000000000000008152600160a060020a038681166004830152915191909216916331419b5091602480830192600092919082900301818387803b1580156105f457600080fd5b505af1158015610608573d6000803e3d6000fd5b505050505050505600a165627a7a7230582074012473280cad8e448e19bb839b3c85a1123a2f13da9a0b09a6852d21e2d5070029`
+const CalypsoBin = `0x608060405234801561001057600080fd5b506040516060806109118339810180604052606081101561003057600080fd5b508051602082015160409092015160008054600160a060020a03928316600160a060020a0319918216179091556001805493831693821693909317909255600380549190931691161790556108878061008a6000396000f3fe6080604052600436106100635760e060020a60003504631029a017811461006857806319a444b71461009d5780633239b71b146100e45780634a4e19d314610117578063778ad09c1461014a578063ac1e9ef41461017d578063bdae9b89146101b0575b600080fd5b34801561007457600080fd5b5061009b6004803603602081101561008b57600080fd5b5035600160a060020a03166101e3565b005b3480156100a957600080fd5b506100d0600480360360208110156100c057600080fd5b5035600160a060020a03166102db565b604080519115158252519081900360200190f35b3480156100f057600080fd5b506100d06004803603602081101561010757600080fd5b5035600160a060020a03166102f0565b34801561012357600080fd5b506100d06004803603602081101561013a57600080fd5b5035600160a060020a0316610389565b34801561015657600080fd5b506100d06004803603602081101561016d57600080fd5b5035600160a060020a0316610408565b34801561018957600080fd5b5061009b600480360360208110156101a057600080fd5b5035600160a060020a031661061b565b3480156101bc57600080fd5b5061009b600480360360208110156101d357600080fd5b5035600160a060020a031661063f565b6101ec336102f0565b151561025957604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601e60248201527f596f7520617265206e6f7420612072656769737465726564206f776e65720000604482015290519081900360640190fd5b600154604080517f1029a017000000000000000000000000000000000000000000000000000000008152600160a060020a03848116600483015291519190921691631029a01791602480830192600092919082900301818387803b1580156102c057600080fd5b505af11580156102d4573d6000803e3d6000fd5b5050505050565b60046020526000908152604090205460ff1681565b60008054604080517f3239b71b000000000000000000000000000000000000000000000000000000008152600160a060020a03858116600483015291519190921691633239b71b916024808301926020929190829003018186803b15801561035757600080fd5b505afa15801561036b573d6000803e3d6000fd5b505050506040513d602081101561038157600080fd5b505192915050565b600154604080517f42087d4f000000000000000000000000000000000000000000000000000000008152600160a060020a038481166004830152915160009392909216916342087d4f9160248082019260209290919082900301818787803b1580156103f457600080fd5b505af115801561036b573d6000803e3d6000fd5b600080829050600081600160a060020a03166364e94e676040518163ffffffff1660e060020a02815260040160206040518083038186803b15801561044c57600080fd5b505afa158015610460573d6000803e3d6000fd5b505050506040513d602081101561047657600080fd5b5051604080517f8da5cb5b00000000000000000000000000000000000000000000000000000000815290519192508291600160a060020a038084169263565542569291871691638da5cb5b91600480820192602092909190829003018186803b1580156104e257600080fd5b505afa1580156104f6573d6000803e3d6000fd5b505050506040513d602081101561050c57600080fd5b50516040805160e060020a63ffffffff8516028152600160a060020a039092166004830152516024808301926020929190829003018186803b15801561055157600080fd5b505afa158015610565573d6000803e3d6000fd5b505050506040513d602081101561057b57600080fd5b5051151561061057604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152603a60248201527f497320746869732061206d656d626572206f662074686520706f6c696379206f60448201527f662074686520706f696e74656420577269746552657175657374000000000000606482015290519081900360840190fd5b506001949350505050565b600160a060020a03166000908152600460205260409020805460ff19166001179055565b6000819050600081600160a060020a03166364e94e676040518163ffffffff1660e060020a02815260040160206040518083038186803b15801561068257600080fd5b505afa158015610696573d6000803e3d6000fd5b505050506040513d60208110156106ac57600080fd5b5051600154604080517f42087d4f000000000000000000000000000000000000000000000000000000008152600160a060020a03808516600483015291519394509116916342087d4f916024808201926020929091908290030181600087803b15801561071857600080fd5b505af115801561072c573d6000803e3d6000fd5b505050506040513d602081101561074257600080fd5b505115156107d757604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602760248201527f5468657265206973206e6f20636f72726573706f6e64696e672077726974652060448201527f7265717565737400000000000000000000000000000000000000000000000000606482015290519081900360840190fd5b600354604080517f31419b50000000000000000000000000000000000000000000000000000000008152600160a060020a038681166004830152915191909216916331419b5091602480830192600092919082900301818387803b15801561083e57600080fd5b505af1158015610852573d6000803e3d6000fd5b5050505050505056fea165627a7a723058209feeef35d18f248ba7d654502295ea7dd9d36c456cb88af3ba8303995600c3cf0029`
 
 // DeployCalypso deploys a new Ethereum contract, binding an instance of Calypso to it.
 func DeployCalypso(auth *bind.TransactOpts, backend bind.ContractBackend, holder common.Address, rrholder common.Address, o common.Address) (common.Address, *types.Transaction, *Calypso, error) {
@@ -337,18 +337,18 @@ func (_Calypso *CalypsoTransactorSession) CheckIfRequestIsValid(a common.Address
 }
 
 // OwnersABI is the input ABI used to generate the binding from.
-const OwnersABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"canWrite\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getNrOwners\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"AddOwner\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
+const OwnersABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"canWrite\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getNrOwners\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"AddOwner\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"a\",\"type\":\"address[]\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
 
 // OwnersBin is the compiled bytecode used for deploying new contracts.
-const OwnersBin = `0x608060405234801561001057600080fd5b50610185806100206000396000f3006080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416633239b71b811461005b578063502bb7341461009d578063ac1e9ef4146100c4575b600080fd5b34801561006757600080fd5b5061008973ffffffffffffffffffffffffffffffffffffffff600435166100f4565b604080519115158252519081900360200190f35b3480156100a957600080fd5b506100b261011f565b60408051918252519081900360200190f35b3480156100d057600080fd5b506100f273ffffffffffffffffffffffffffffffffffffffff60043516610125565b005b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604090205460ff1690565b60005490565b73ffffffffffffffffffffffffffffffffffffffff166000908152600160208190526040909120805460ff191690911790555600a165627a7a723058202ed371272478c472c1407e55d25087a68b749c661521e332f63cda9556e676580029`
+const OwnersBin = `0x608060405234801561001057600080fd5b506040516103403803806103408339810180604052602081101561003357600080fd5b81019080805164010000000081111561004b57600080fd5b8201602081018481111561005e57600080fd5b815185602082028301116401000000008211171561007b57600080fd5b505080519093506100959250600091506020840190610102565b5060005b81518163ffffffff1610156100fb576001806000848463ffffffff168151811015156100c157fe5b602090810291909101810151600160a060020a03168252810191909152604001600020805460ff1916911515919091179055600101610099565b505061018e565b828054828255906000526020600020908101928215610157579160200282015b828111156101575782518254600160a060020a031916600160a060020a03909116178255602090920191600190910190610122565b50610163929150610167565b5090565b61018b91905b80821115610163578054600160a060020a031916815560010161016d565b90565b6101a38061019d6000396000f3fe608060405260043610610050577c010000000000000000000000000000000000000000000000000000000060003504633239b71b8114610055578063502bb734146100a9578063ac1e9ef4146100d0575b600080fd5b34801561006157600080fd5b506100956004803603602081101561007857600080fd5b503573ffffffffffffffffffffffffffffffffffffffff16610112565b604080519115158252519081900360200190f35b3480156100b557600080fd5b506100be61013d565b60408051918252519081900360200190f35b3480156100dc57600080fd5b50610110600480360360208110156100f357600080fd5b503573ffffffffffffffffffffffffffffffffffffffff16610143565b005b73ffffffffffffffffffffffffffffffffffffffff1660009081526001602052604090205460ff1690565b60005490565b73ffffffffffffffffffffffffffffffffffffffff166000908152600160208190526040909120805460ff1916909117905556fea165627a7a72305820eee30b3e680a8f66e353c7e5262835e81b1092377f5a211066bf33b88fef9c060029`
 
 // DeployOwners deploys a new Ethereum contract, binding an instance of Owners to it.
-func DeployOwners(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *Owners, error) {
+func DeployOwners(auth *bind.TransactOpts, backend bind.ContractBackend, a []common.Address) (common.Address, *types.Transaction, *Owners, error) {
 	parsed, err := abi.JSON(strings.NewReader(OwnersABI))
 	if err != nil {
 		return common.Address{}, nil, nil, err
 	}
-	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(OwnersBin), backend)
+	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(OwnersBin), backend, a)
 	if err != nil {
 		return common.Address{}, nil, nil, err
 	}
@@ -570,19 +570,248 @@ func (_Owners *OwnersTransactorSession) AddOwner(a common.Address) (*types.Trans
 	return _Owners.Contract.AddOwner(&_Owners.TransactOpts, a)
 }
 
+// PolicyABI is the input ABI used to generate the binding from.
+const PolicyABI = "[{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"RemoveFromPolicy\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"CanRead\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"AddOwner\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"a\",\"type\":\"address[]\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
+
+// PolicyBin is the compiled bytecode used for deploying new contracts.
+const PolicyBin = `0x608060405234801561001057600080fd5b506040516104873803806104878339810180604052602081101561003357600080fd5b81019080805164010000000081111561004b57600080fd5b8201602081018481111561005e57600080fd5b815185602082028301116401000000008211171561007b57600080fd5b505060008054600160a060020a0319163317905580519093506100a7925060019150602084019061011b565b5060005b8151816001604060020a031610156101145760016002600084846001604060020a03168151811015156100da57fe5b602090810291909101810151600160a060020a03168252810191909152604001600020805460ff19169115159190911790556001016100ab565b50506101a7565b828054828255906000526020600020908101928215610170579160200282015b828111156101705782518254600160a060020a031916600160a060020a0390911617825560209092019160019091019061013b565b5061017c929150610180565b5090565b6101a491905b8082111561017c578054600160a060020a0319168155600101610186565b90565b6102d1806101b66000396000f3fe608060405260043610610050577c010000000000000000000000000000000000000000000000000000000060003504631809a39e8114610055578063565542561461008a578063ac1e9ef4146100d1575b600080fd5b34801561006157600080fd5b506100886004803603602081101561007857600080fd5b5035600160a060020a0316610104565b005b34801561009657600080fd5b506100bd600480360360208110156100ad57600080fd5b5035600160a060020a03166101c4565b604080519115158252519081900360200190f35b3480156100dd57600080fd5b50610088600480360360208110156100f457600080fd5b5035600160a060020a03166101e2565b600054600160a060020a031633146101a357604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602f60248201527f596f7520617265206e6f742070617274206f6620746865206f776e657273686960448201527f70206f66207468697320706f6963790000000000000000000000000000000000606482015290519081900360840190fd5b600160a060020a03166000908152600260205260409020805460ff19169055565b600160a060020a031660009081526002602052604090205460ff1690565b600054600160a060020a0316331461028157604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602f60248201527f596f7520617265206e6f742070617274206f6620746865206f776e657273686960448201527f70206f66207468697320706f6963790000000000000000000000000000000000606482015290519081900360840190fd5b600160a060020a03166000908152600260205260409020805460ff1916600117905556fea165627a7a72305820a0ed47e9eab40eddacde74f4eadba88672ab6b210f5529deae653ee9b9efa25e0029`
+
+// DeployPolicy deploys a new Ethereum contract, binding an instance of Policy to it.
+func DeployPolicy(auth *bind.TransactOpts, backend bind.ContractBackend, a []common.Address) (common.Address, *types.Transaction, *Policy, error) {
+	parsed, err := abi.JSON(strings.NewReader(PolicyABI))
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(PolicyBin), backend, a)
+	if err != nil {
+		return common.Address{}, nil, nil, err
+	}
+	return address, tx, &Policy{PolicyCaller: PolicyCaller{contract: contract}, PolicyTransactor: PolicyTransactor{contract: contract}, PolicyFilterer: PolicyFilterer{contract: contract}}, nil
+}
+
+// Policy is an auto generated Go binding around an Ethereum contract.
+type Policy struct {
+	PolicyCaller     // Read-only binding to the contract
+	PolicyTransactor // Write-only binding to the contract
+	PolicyFilterer   // Log filterer for contract events
+}
+
+// PolicyCaller is an auto generated read-only Go binding around an Ethereum contract.
+type PolicyCaller struct {
+	contract *bind.BoundContract // Generic contract wrapper for the low level calls
+}
+
+// PolicyTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type PolicyTransactor struct {
+	contract *bind.BoundContract // Generic contract wrapper for the low level calls
+}
+
+// PolicyFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type PolicyFilterer struct {
+	contract *bind.BoundContract // Generic contract wrapper for the low level calls
+}
+
+// PolicySession is an auto generated Go binding around an Ethereum contract,
+// with pre-set call and transact options.
+type PolicySession struct {
+	Contract     *Policy           // Generic contract binding to set the session for
+	CallOpts     bind.CallOpts     // Call options to use throughout this session
+	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+}
+
+// PolicyCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// with pre-set call options.
+type PolicyCallerSession struct {
+	Contract *PolicyCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts // Call options to use throughout this session
+}
+
+// PolicyTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// with pre-set transact options.
+type PolicyTransactorSession struct {
+	Contract     *PolicyTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+}
+
+// PolicyRaw is an auto generated low-level Go binding around an Ethereum contract.
+type PolicyRaw struct {
+	Contract *Policy // Generic contract binding to access the raw methods on
+}
+
+// PolicyCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type PolicyCallerRaw struct {
+	Contract *PolicyCaller // Generic read-only contract binding to access the raw methods on
+}
+
+// PolicyTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type PolicyTransactorRaw struct {
+	Contract *PolicyTransactor // Generic write-only contract binding to access the raw methods on
+}
+
+// NewPolicy creates a new instance of Policy, bound to a specific deployed contract.
+func NewPolicy(address common.Address, backend bind.ContractBackend) (*Policy, error) {
+	contract, err := bindPolicy(address, backend, backend, backend)
+	if err != nil {
+		return nil, err
+	}
+	return &Policy{PolicyCaller: PolicyCaller{contract: contract}, PolicyTransactor: PolicyTransactor{contract: contract}, PolicyFilterer: PolicyFilterer{contract: contract}}, nil
+}
+
+// NewPolicyCaller creates a new read-only instance of Policy, bound to a specific deployed contract.
+func NewPolicyCaller(address common.Address, caller bind.ContractCaller) (*PolicyCaller, error) {
+	contract, err := bindPolicy(address, caller, nil, nil)
+	if err != nil {
+		return nil, err
+	}
+	return &PolicyCaller{contract: contract}, nil
+}
+
+// NewPolicyTransactor creates a new write-only instance of Policy, bound to a specific deployed contract.
+func NewPolicyTransactor(address common.Address, transactor bind.ContractTransactor) (*PolicyTransactor, error) {
+	contract, err := bindPolicy(address, nil, transactor, nil)
+	if err != nil {
+		return nil, err
+	}
+	return &PolicyTransactor{contract: contract}, nil
+}
+
+// NewPolicyFilterer creates a new log filterer instance of Policy, bound to a specific deployed contract.
+func NewPolicyFilterer(address common.Address, filterer bind.ContractFilterer) (*PolicyFilterer, error) {
+	contract, err := bindPolicy(address, nil, nil, filterer)
+	if err != nil {
+		return nil, err
+	}
+	return &PolicyFilterer{contract: contract}, nil
+}
+
+// bindPolicy binds a generic wrapper to an already deployed contract.
+func bindPolicy(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(PolicyABI))
+	if err != nil {
+		return nil, err
+	}
+	return bind.NewBoundContract(address, parsed, caller, transactor, filterer), nil
+}
+
+// Call invokes the (constant) contract method with params as input values and
+// sets the output to result. The result type might be a single field for simple
+// returns, a slice of interfaces for anonymous returns and a struct for named
+// returns.
+func (_Policy *PolicyRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
+	return _Policy.Contract.PolicyCaller.contract.Call(opts, result, method, params...)
+}
+
+// Transfer initiates a plain transaction to move funds to the contract, calling
+// its default method if one is available.
+func (_Policy *PolicyRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Policy.Contract.PolicyTransactor.contract.Transfer(opts)
+}
+
+// Transact invokes the (paid) contract method with params as input values.
+func (_Policy *PolicyRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _Policy.Contract.PolicyTransactor.contract.Transact(opts, method, params...)
+}
+
+// Call invokes the (constant) contract method with params as input values and
+// sets the output to result. The result type might be a single field for simple
+// returns, a slice of interfaces for anonymous returns and a struct for named
+// returns.
+func (_Policy *PolicyCallerRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
+	return _Policy.Contract.contract.Call(opts, result, method, params...)
+}
+
+// Transfer initiates a plain transaction to move funds to the contract, calling
+// its default method if one is available.
+func (_Policy *PolicyTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Policy.Contract.contract.Transfer(opts)
+}
+
+// Transact invokes the (paid) contract method with params as input values.
+func (_Policy *PolicyTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _Policy.Contract.contract.Transact(opts, method, params...)
+}
+
+// CanRead is a free data retrieval call binding the contract method 0x56554256.
+//
+// Solidity: function CanRead(a address) constant returns(bool)
+func (_Policy *PolicyCaller) CanRead(opts *bind.CallOpts, a common.Address) (bool, error) {
+	var (
+		ret0 = new(bool)
+	)
+	out := ret0
+	err := _Policy.contract.Call(opts, out, "CanRead", a)
+	return *ret0, err
+}
+
+// CanRead is a free data retrieval call binding the contract method 0x56554256.
+//
+// Solidity: function CanRead(a address) constant returns(bool)
+func (_Policy *PolicySession) CanRead(a common.Address) (bool, error) {
+	return _Policy.Contract.CanRead(&_Policy.CallOpts, a)
+}
+
+// CanRead is a free data retrieval call binding the contract method 0x56554256.
+//
+// Solidity: function CanRead(a address) constant returns(bool)
+func (_Policy *PolicyCallerSession) CanRead(a common.Address) (bool, error) {
+	return _Policy.Contract.CanRead(&_Policy.CallOpts, a)
+}
+
+// AddOwner is a paid mutator transaction binding the contract method 0xac1e9ef4.
+//
+// Solidity: function AddOwner(a address) returns()
+func (_Policy *PolicyTransactor) AddOwner(opts *bind.TransactOpts, a common.Address) (*types.Transaction, error) {
+	return _Policy.contract.Transact(opts, "AddOwner", a)
+}
+
+// AddOwner is a paid mutator transaction binding the contract method 0xac1e9ef4.
+//
+// Solidity: function AddOwner(a address) returns()
+func (_Policy *PolicySession) AddOwner(a common.Address) (*types.Transaction, error) {
+	return _Policy.Contract.AddOwner(&_Policy.TransactOpts, a)
+}
+
+// AddOwner is a paid mutator transaction binding the contract method 0xac1e9ef4.
+//
+// Solidity: function AddOwner(a address) returns()
+func (_Policy *PolicyTransactorSession) AddOwner(a common.Address) (*types.Transaction, error) {
+	return _Policy.Contract.AddOwner(&_Policy.TransactOpts, a)
+}
+
+// RemoveFromPolicy is a paid mutator transaction binding the contract method 0x1809a39e.
+//
+// Solidity: function RemoveFromPolicy(a address) returns()
+func (_Policy *PolicyTransactor) RemoveFromPolicy(opts *bind.TransactOpts, a common.Address) (*types.Transaction, error) {
+	return _Policy.contract.Transact(opts, "RemoveFromPolicy", a)
+}
+
+// RemoveFromPolicy is a paid mutator transaction binding the contract method 0x1809a39e.
+//
+// Solidity: function RemoveFromPolicy(a address) returns()
+func (_Policy *PolicySession) RemoveFromPolicy(a common.Address) (*types.Transaction, error) {
+	return _Policy.Contract.RemoveFromPolicy(&_Policy.TransactOpts, a)
+}
+
+// RemoveFromPolicy is a paid mutator transaction binding the contract method 0x1809a39e.
+//
+// Solidity: function RemoveFromPolicy(a address) returns()
+func (_Policy *PolicyTransactorSession) RemoveFromPolicy(a common.Address) (*types.Transaction, error) {
+	return _Policy.Contract.RemoveFromPolicy(&_Policy.TransactOpts, a)
+}
+
 // ReadRequestABI is the input ABI used to generate the binding from.
-const ReadRequestABI = "[{\"constant\":true,\"inputs\":[],\"name\":\"xc\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"writeRequest\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"wr\",\"type\":\"address\"}],\"name\":\"CompareReadWrite\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"a\",\"type\":\"address\"},{\"name\":\"x\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
+const ReadRequestABI = "[{\"constant\":true,\"inputs\":[],\"name\":\"xc\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"writeRequest\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"wr\",\"type\":\"address\"}],\"name\":\"CompareReadWrite\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"WriteHash\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"a\",\"type\":\"address\"},{\"name\":\"x\",\"type\":\"bytes\"},{\"name\":\"wrHash\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
 
 // ReadRequestBin is the compiled bytecode used for deploying new contracts.
-const ReadRequestBin = `0x608060405234801561001057600080fd5b5060405161036d38038061036d83398101604052805160208083015160008054600160a060020a031916600160a060020a0385161790559092018051919290916100609160019190840190610068565b505050610103565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100a957805160ff19168380011785556100d6565b828001600101855582156100d6579182015b828111156100d65782518255916020019190600101906100bb565b506100e29291506100e6565b5090565b61010091905b808211156100e257600081556001016100ec565b90565b61025b806101126000396000f3006080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416635baf4e9f811461005b57806364e94e67146100e55780639d0089b814610123575b600080fd5b34801561006757600080fd5b50610070610165565b6040805160208082528351818301528351919283929083019185019080838360005b838110156100aa578181015183820152602001610092565b50505050905090810190601f1680156100d75780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156100f157600080fd5b506100fa6101f2565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b34801561012f57600080fd5b5061015173ffffffffffffffffffffffffffffffffffffffff6004351661020e565b604080519115158252519081900360200190f35b60018054604080516020600284861615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156101ea5780601f106101bf576101008083540402835291602001916101ea565b820191906000526020600020905b8154815290600101906020018083116101cd57829003601f168201915b505050505081565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60005473ffffffffffffffffffffffffffffffffffffffff908116911614905600a165627a7a72305820d145554985deda3b942cf92099d6ab9fde0bdda7fd43c02b7528e7fe743ea6590029`
+const ReadRequestBin = `0x608060405234801561001057600080fd5b506040516104f23803806104f28339810180604052606081101561003357600080fd5b81516020830180519193928301929164010000000081111561005457600080fd5b8201602081018481111561006757600080fd5b815164010000000081118282018710171561008157600080fd5b5050929190602001805164010000000081111561009d57600080fd5b820160208101848111156100b057600080fd5b81516401000000008111828201871017156100ca57600080fd5b50506002805433600160a060020a03199182161790915560008054909116600160a060020a038816179055845190935061010d925060019150602085019061012a565b50805161012190600390602084019061012a565b505050506101c5565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061016b57805160ff1916838001178555610198565b82800160010185558215610198579182015b8281111561019857825182559160200191906001019061017d565b506101a49291506101a8565b5090565b6101c291905b808211156101a457600081556001016101ae565b90565b61031e806101d46000396000f3fe608060405260043610610066577c010000000000000000000000000000000000000000000000000000000060003504635baf4e9f811461006b57806364e94e67146100f55780638da5cb5b146101335780639d0089b814610148578063d27d13db1461019c575b600080fd5b34801561007757600080fd5b506100806101b1565b6040805160208082528351818301528351919283929083019185019080838360005b838110156100ba5781810151838201526020016100a2565b50505050905090810190601f1680156100e75780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561010157600080fd5b5061010a61023e565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b34801561013f57600080fd5b5061010a61025a565b34801561015457600080fd5b506101886004803603602081101561016b57600080fd5b503573ffffffffffffffffffffffffffffffffffffffff16610276565b604080519115158252519081900360200190f35b3480156101a857600080fd5b50610080610297565b60018054604080516020600284861615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156102365780601f1061020b57610100808354040283529160200191610236565b820191906000526020600020905b81548152906001019060200180831161021957829003601f168201915b505050505081565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b60025473ffffffffffffffffffffffffffffffffffffffff1681565b60005473ffffffffffffffffffffffffffffffffffffffff90811691161490565b6003805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156102365780601f1061020b5761010080835404028352916020019161023656fea165627a7a7230582046dd76491d4a5fdf6d143543ade82522b484af2f71bcf6d748c1248b990c67720029`
 
 // DeployReadRequest deploys a new Ethereum contract, binding an instance of ReadRequest to it.
-func DeployReadRequest(auth *bind.TransactOpts, backend bind.ContractBackend, a common.Address, x []byte) (common.Address, *types.Transaction, *ReadRequest, error) {
+func DeployReadRequest(auth *bind.TransactOpts, backend bind.ContractBackend, a common.Address, x []byte, wrHash []byte) (common.Address, *types.Transaction, *ReadRequest, error) {
 	parsed, err := abi.JSON(strings.NewReader(ReadRequestABI))
 	if err != nil {
 		return common.Address{}, nil, nil, err
 	}
-	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(ReadRequestBin), backend, a, x)
+	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(ReadRequestBin), backend, a, x, wrHash)
 	if err != nil {
 		return common.Address{}, nil, nil, err
 	}
@@ -757,6 +986,58 @@ func (_ReadRequest *ReadRequestCallerSession) CompareReadWrite(wr common.Address
 	return _ReadRequest.Contract.CompareReadWrite(&_ReadRequest.CallOpts, wr)
 }
 
+// WriteHash is a free data retrieval call binding the contract method 0xd27d13db.
+//
+// Solidity: function WriteHash() constant returns(bytes)
+func (_ReadRequest *ReadRequestCaller) WriteHash(opts *bind.CallOpts) ([]byte, error) {
+	var (
+		ret0 = new([]byte)
+	)
+	out := ret0
+	err := _ReadRequest.contract.Call(opts, out, "WriteHash")
+	return *ret0, err
+}
+
+// WriteHash is a free data retrieval call binding the contract method 0xd27d13db.
+//
+// Solidity: function WriteHash() constant returns(bytes)
+func (_ReadRequest *ReadRequestSession) WriteHash() ([]byte, error) {
+	return _ReadRequest.Contract.WriteHash(&_ReadRequest.CallOpts)
+}
+
+// WriteHash is a free data retrieval call binding the contract method 0xd27d13db.
+//
+// Solidity: function WriteHash() constant returns(bytes)
+func (_ReadRequest *ReadRequestCallerSession) WriteHash() ([]byte, error) {
+	return _ReadRequest.Contract.WriteHash(&_ReadRequest.CallOpts)
+}
+
+// Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
+//
+// Solidity: function owner() constant returns(address)
+func (_ReadRequest *ReadRequestCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+	var (
+		ret0 = new(common.Address)
+	)
+	out := ret0
+	err := _ReadRequest.contract.Call(opts, out, "owner")
+	return *ret0, err
+}
+
+// Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
+//
+// Solidity: function owner() constant returns(address)
+func (_ReadRequest *ReadRequestSession) Owner() (common.Address, error) {
+	return _ReadRequest.Contract.Owner(&_ReadRequest.CallOpts)
+}
+
+// Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
+//
+// Solidity: function owner() constant returns(address)
+func (_ReadRequest *ReadRequestCallerSession) Owner() (common.Address, error) {
+	return _ReadRequest.Contract.Owner(&_ReadRequest.CallOpts)
+}
+
 // WriteRequest is a free data retrieval call binding the contract method 0x64e94e67.
 //
 // Solidity: function writeRequest() constant returns(address)
@@ -813,7 +1094,7 @@ func (_ReadRequest *ReadRequestCallerSession) Xc() ([]byte, error) {
 const ReadRequestHolderABI = "[{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"addReadRequest\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"requests\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"hasReq\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"id\",\"type\":\"address\"}],\"name\":\"hasReadRequest\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
 
 // ReadRequestHolderBin is the compiled bytecode used for deploying new contracts.
-const ReadRequestHolderBin = `0x608060405234801561001057600080fd5b506101e1806100206000396000f3006080604052600436106100615763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166331419b50811461006657806374adad1d146100895780638eb81102146100c6578063fd6336dc146100fb575b600080fd5b34801561007257600080fd5b50610087600160a060020a036004351661011c565b005b34801561009557600080fd5b506100aa600160a060020a0360043516610167565b60408051600160a060020a039092168252519081900360200190f35b3480156100d257600080fd5b506100e7600160a060020a0360043516610182565b604080519115158252519081900360200190f35b34801561010757600080fd5b506100e7600160a060020a0360043516610197565b600160a060020a0316600081815260208181526040808320805460ff191660019081179091559091529020805473ffffffffffffffffffffffffffffffffffffffff19169091179055565b600160205260009081526040902054600160a060020a031681565b60006020819052908152604090205460ff1681565b600160a060020a031660009081526020819052604090205460ff16905600a165627a7a723058201939f5aec546a585edfd0a935899e6fe2027a5a0db8219cd207936bfed3ce00e0029`
+const ReadRequestHolderBin = `0x608060405234801561001057600080fd5b50610223806100206000396000f3fe60806040526004361061005b577c0100000000000000000000000000000000000000000000000000000000600035046331419b50811461006057806374adad1d146100955780638eb81102146100e4578063fd6336dc1461012b575b600080fd5b34801561006c57600080fd5b506100936004803603602081101561008357600080fd5b5035600160a060020a031661015e565b005b3480156100a157600080fd5b506100c8600480360360208110156100b857600080fd5b5035600160a060020a03166101a9565b60408051600160a060020a039092168252519081900360200190f35b3480156100f057600080fd5b506101176004803603602081101561010757600080fd5b5035600160a060020a03166101c4565b604080519115158252519081900360200190f35b34801561013757600080fd5b506101176004803603602081101561014e57600080fd5b5035600160a060020a03166101d9565b600160a060020a0316600081815260208181526040808320805460ff191660019081179091559091529020805473ffffffffffffffffffffffffffffffffffffffff19169091179055565b600160205260009081526040902054600160a060020a031681565b60006020819052908152604090205460ff1681565b600160a060020a031660009081526020819052604090205460ff169056fea165627a7a72305820c18b958e0b24b6957a74ae2dd9fc0175b2421ca8eedc9e779d4944da29f479c70029`
 
 // DeployReadRequestHolder deploys a new Ethereum contract, binding an instance of ReadRequestHolder to it.
 func DeployReadRequestHolder(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *ReadRequestHolder, error) {
@@ -1070,18 +1351,18 @@ func (_ReadRequestHolder *ReadRequestHolderTransactorSession) AddReadRequest(a c
 }
 
 // WriteRequestABI is the input ABI used to generate the binding from.
-const WriteRequestABI = "[{\"constant\":true,\"inputs\":[],\"name\":\"LTSID\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"U\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"extraData\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"data\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"Cs\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"getPolicySize\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"split\",\"outputs\":[{\"name\":\"\",\"type\":\"int64\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"d\",\"type\":\"bytes\"},{\"name\":\"ed\",\"type\":\"bytes\"},{\"name\":\"l\",\"type\":\"bytes\"},{\"name\":\"p\",\"type\":\"address[]\"},{\"name\":\"u\",\"type\":\"bytes\"},{\"name\":\"cs\",\"type\":\"bytes\"},{\"name\":\"s\",\"type\":\"int64\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
+const WriteRequestABI = "[{\"constant\":true,\"inputs\":[],\"name\":\"LTSID\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"U\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"F\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"CanRead\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"GetSlice\",\"outputs\":[{\"name\":\"\",\"type\":\"int64[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"extraData\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"data\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"E\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"Cs\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"X\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"slice\",\"outputs\":[{\"name\":\"\",\"type\":\"int64\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"Ubar\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"d\",\"type\":\"bytes\"},{\"name\":\"ed\",\"type\":\"bytes\"},{\"name\":\"l\",\"type\":\"bytes\"},{\"name\":\"p\",\"type\":\"address\"},{\"name\":\"u\",\"type\":\"bytes\"},{\"name\":\"cs\",\"type\":\"bytes\"},{\"name\":\"sl\",\"type\":\"int64[]\"},{\"name\":\"f\",\"type\":\"bytes\"},{\"name\":\"e\",\"type\":\"bytes\"},{\"name\":\"ub\",\"type\":\"bytes\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
 
 // WriteRequestBin is the compiled bytecode used for deploying new contracts.
-const WriteRequestBin = `0x60806040523480156200001157600080fd5b506040516200097838038062000978833981018060405262000037919081019062000322565b86516200004c9060009060208a0190620000ee565b50855162000062906001906020890190620000ee565b50845162000078906002906020880190620000ee565b5083516200008e90600590602087019062000173565b508251620000a4906003906020860190620000ee565b508151620000ba906004906020850190620000ee565b506006805460079290920b6001604060020a031667ffffffffffffffff199092169190911790555062000511945050505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106200013157805160ff191683800117855562000161565b8280016001018555821562000161579182015b828111156200016157825182559160200191906001019062000144565b506200016f929150620001d9565b5090565b828054828255906000526020600020908101928215620001cb579160200282015b82811115620001cb5782518254600160a060020a031916600160a060020a0390911617825560209092019160019091019062000194565b506200016f929150620001f9565b620001f691905b808211156200016f5760008155600101620001e0565b90565b620001f691905b808211156200016f578054600160a060020a031916815560010162000200565b60006200022e8251620004cc565b9392505050565b6000601f820183136200024757600080fd5b81516200025e620002588262000483565b6200045c565b915081818352602084019350602081019050838560208402820111156200028457600080fd5b60005b83811015620002b457816200029d888262000220565b845250602092830192919091019060010162000287565b5050505092915050565b6000601f82018313620002d057600080fd5b8151620002e16200025882620004a4565b91508082526020830160208301858383011115620002fe57600080fd5b6200030b838284620004de565b50505092915050565b60006200022e8251620004d8565b600080600080600080600060e0888a0312156200033e57600080fd5b87516001604060020a038111156200035557600080fd5b620003638a828b01620002be565b97505060208801516001604060020a038111156200038057600080fd5b6200038e8a828b01620002be565b96505060408801516001604060020a03811115620003ab57600080fd5b620003b98a828b01620002be565b95505060608801516001604060020a03811115620003d657600080fd5b620003e48a828b0162000235565b94505060808801516001604060020a038111156200040157600080fd5b6200040f8a828b01620002be565b93505060a08801516001604060020a038111156200042c57600080fd5b6200043a8a828b01620002be565b92505060c06200044d8a828b0162000314565b91505092959891949750929550565b6040518181016001604060020a03811182821017156200047b57600080fd5b604052919050565b60006001604060020a038211156200049a57600080fd5b5060209081020190565b60006001604060020a03821115620004bb57600080fd5b506020601f91909101601f19160190565b600160a060020a031690565b60070b90565b60005b83811015620004fb578181015183820152602001620004e1565b838111156200050b576000848401525b50505050565b61045780620005216000396000f3006080604052600436106100825763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416630fdcdbfd81146100875780632688454a146100b2578063609d3334146100c757806373d4a13a146100dc578063b6f9cf6a146100f1578063ecc0f87114610106578063f765417614610128575b600080fd5b34801561009357600080fd5b5061009c61014a565b6040516100a9919061039c565b60405180910390f35b3480156100be57600080fd5b5061009c6101d5565b3480156100d357600080fd5b5061009c610230565b3480156100e857600080fd5b5061009c61028a565b3480156100fd57600080fd5b5061009c6102e5565b34801561011257600080fd5b5061011b610340565b6040516100a991906103c8565b34801561013457600080fd5b5061013d610346565b6040516100a991906103b4565b6002805460408051602060018416156101000260001901909316849004601f810184900484028201840190925281815292918301828280156101cd5780601f106101a2576101008083540402835291602001916101cd565b820191906000526020600020905b8154815290600101906020018083116101b057829003601f168201915b505050505081565b6003805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156101cd5780601f106101a2576101008083540402835291602001916101cd565b60018054604080516020600284861615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156101cd5780601f106101a2576101008083540402835291602001916101cd565b6000805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156101cd5780601f106101a2576101008083540402835291602001916101cd565b6004805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156101cd5780601f106101a2576101008083540402835291602001916101cd565b60055490565b60065460070b81565b600061035a826103d6565b80845261036e8160208601602086016103e3565b61037781610413565b9093016020019392505050565b61038d816103da565b82525050565b61038d816103e0565b602080825281016103ad818461034f565b9392505050565b602081016103c28284610384565b92915050565b602081016103c28284610393565b5190565b60070b90565b90565b60005b838110156103fe5781810151838201526020016103e6565b8381111561040d576000848401525b50505050565b601f01601f1916905600a265627a7a72305820599056db1ace1549c7053bcfd2c7fbcbeefbcace5febefa1093e1461eb9210d46c6578706572696d656e74616cf50037`
+const WriteRequestBin = `0x60806040523480156200001157600080fd5b5060405162000d4f38038062000d4f83398101806040526101408110156200003857600080fd5b8101908080516401000000008111156200005157600080fd5b820160208101848111156200006557600080fd5b81516401000000008111828201871017156200008057600080fd5b505092919060200180516401000000008111156200009d57600080fd5b82016020810184811115620000b157600080fd5b8151640100000000811182820187101715620000cc57600080fd5b50509291906020018051640100000000811115620000e957600080fd5b82016020810184811115620000fd57600080fd5b81516401000000008111828201871017156200011857600080fd5b505060208201516040909201805191949293916401000000008111156200013e57600080fd5b820160208101848111156200015257600080fd5b81516401000000008111828201871017156200016d57600080fd5b505092919060200180516401000000008111156200018a57600080fd5b820160208101848111156200019e57600080fd5b8151640100000000811182820187101715620001b957600080fd5b50509291906020018051640100000000811115620001d657600080fd5b82016020810184811115620001ea57600080fd5b81518560208202830111640100000000821117156200020857600080fd5b505092919060200180516401000000008111156200022557600080fd5b820160208101848111156200023957600080fd5b81516401000000008111828201871017156200025457600080fd5b505092919060200180516401000000008111156200027157600080fd5b820160208101848111156200028557600080fd5b8151640100000000811182820187101715620002a057600080fd5b50509291906020018051640100000000811115620002bd57600080fd5b82016020810184811115620002d157600080fd5b8151640100000000811182820187101715620002ec57600080fd5b50508c519093506200030892506000915060208d0190620003e4565b5088516200031e9060019060208c0190620003e4565b508751620003349060029060208b0190620003e4565b5060098054600160a060020a031916600160a060020a038916179055855162000365906003906020890190620003e4565b5084516200037b906008906020880190620003e4565b5083516200039190600a90602087019062000469565b508251620003a7906006906020860190620003e4565b508151620003bd906005906020850190620003e4565b508051620003d3906004906020840190620003e4565b50505050505050505050506200056f565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106200042757805160ff191683800117855562000457565b8280016001018555821562000457579182015b82811115620004575782518255916020019190600101906200043a565b506200046592915062000527565b5090565b82805482825590600052602060002090600301600490048101928215620005195791602002820160005b83821115620004e257835183826101000a8154816001604060020a03021916908360070b6001604060020a03160217905550926020019260080160208160070104928301926001030262000493565b8015620005175782816101000a8154906001604060020a030219169055600801602081600701049283019260010302620004e2565b505b506200046592915062000547565b6200054491905b808211156200046557600081556001016200052e565b90565b6200054491905b808211156200046557805467ffffffffffffffff191681556001016200054e565b6107d0806200057f6000396000f3fe6080604052600436106100b3577c010000000000000000000000000000000000000000000000000000000060003504630fdcdbfd81146100b85780632688454a1461014257806328811f5914610157578063565542561461016c5780635bf2abcd146101c0578063609d33341461022557806373d4a13a1461023a57806392bbf6e81461024f578063b6f9cf6a14610264578063c1599bd914610279578063e6a01b5a1461028e578063eeeee14d146102d1575b600080fd5b3480156100c457600080fd5b506100cd6102e6565b6040805160208082528351818301528351919283929083019185019080838360005b838110156101075781810151838201526020016100ef565b50505050905090810190601f1680156101345780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561014e57600080fd5b506100cd610371565b34801561016357600080fd5b506100cd6103cc565b34801561017857600080fd5b506101ac6004803603602081101561018f57600080fd5b503573ffffffffffffffffffffffffffffffffffffffff16610427565b604080519115158252519081900360200190f35b3480156101cc57600080fd5b506101d56104d0565b60408051602080825283518183015283519192839290830191858101910280838360005b838110156102115781810151838201526020016101f9565b505050509050019250505060405180910390f35b34801561023157600080fd5b506100cd61054e565b34801561024657600080fd5b506100cd6105a8565b34801561025b57600080fd5b506100cd610603565b34801561027057600080fd5b506100cd61065e565b34801561028557600080fd5b506100cd6106b9565b34801561029a57600080fd5b506102b8600480360360208110156102b157600080fd5b5035610714565b60408051600792830b90920b8252519081900360200190f35b3480156102dd57600080fd5b506100cd610749565b6002805460408051602060018416156101000260001901909316849004601f810184900484028201840190925281815292918301828280156103695780601f1061033e57610100808354040283529160200191610369565b820191906000526020600020905b81548152906001019060200180831161034c57829003601f168201915b505050505081565b6003805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103695780601f1061033e57610100808354040283529160200191610369565b6006805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103695780601f1061033e57610100808354040283529160200191610369565b600954604080517f5655425600000000000000000000000000000000000000000000000000000000815273ffffffffffffffffffffffffffffffffffffffff848116600483015291516000939290921691635655425691602480820192602092909190829003018186803b15801561049e57600080fd5b505afa1580156104b2573d6000803e3d6000fd5b505050506040513d60208110156104c857600080fd5b505192915050565b6060600a80548060200260200160405190810160405280929190818152602001828054801561054457602002820191906000526020600020906000905b82829054906101000a900460070b60070b8152602001906008019060208260070104928301926001038202915080841161050d5790505b5050505050905090565b60018054604080516020600284861615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103695780601f1061033e57610100808354040283529160200191610369565b6000805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103695780601f1061033e57610100808354040283529160200191610369565b6005805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103695780601f1061033e57610100808354040283529160200191610369565b6008805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103695780601f1061033e57610100808354040283529160200191610369565b6007805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103695780601f1061033e57610100808354040283529160200191610369565b600a80548290811061072257fe5b9060005260206000209060049182820401919006600802915054906101000a900460070b81565b6004805460408051602060026001851615610100026000190190941693909304601f810184900484028201840190925281815292918301828280156103695780601f1061033e5761010080835404028352916020019161036956fea165627a7a7230582068bbf7bc61fe7f9e0bd52bd87dfb1bb908db980e18654c467b4d3bdeb3bd7e480029`
 
 // DeployWriteRequest deploys a new Ethereum contract, binding an instance of WriteRequest to it.
-func DeployWriteRequest(auth *bind.TransactOpts, backend bind.ContractBackend, d []byte, ed []byte, l []byte, p []common.Address, u []byte, cs []byte, s int64) (common.Address, *types.Transaction, *WriteRequest, error) {
+func DeployWriteRequest(auth *bind.TransactOpts, backend bind.ContractBackend, d []byte, ed []byte, l []byte, p common.Address, u []byte, cs []byte, sl []int64, f []byte, e []byte, ub []byte) (common.Address, *types.Transaction, *WriteRequest, error) {
 	parsed, err := abi.JSON(strings.NewReader(WriteRequestABI))
 	if err != nil {
 		return common.Address{}, nil, nil, err
 	}
-	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(WriteRequestBin), backend, d, ed, l, p, u, cs, s)
+	address, tx, contract, err := bind.DeployContract(auth, parsed, common.FromHex(WriteRequestBin), backend, d, ed, l, p, u, cs, sl, f, e, ub)
 	if err != nil {
 		return common.Address{}, nil, nil, err
 	}
@@ -1230,6 +1511,32 @@ func (_WriteRequest *WriteRequestTransactorRaw) Transact(opts *bind.TransactOpts
 	return _WriteRequest.Contract.contract.Transact(opts, method, params...)
 }
 
+// CanRead is a free data retrieval call binding the contract method 0x56554256.
+//
+// Solidity: function CanRead(a address) constant returns(bool)
+func (_WriteRequest *WriteRequestCaller) CanRead(opts *bind.CallOpts, a common.Address) (bool, error) {
+	var (
+		ret0 = new(bool)
+	)
+	out := ret0
+	err := _WriteRequest.contract.Call(opts, out, "CanRead", a)
+	return *ret0, err
+}
+
+// CanRead is a free data retrieval call binding the contract method 0x56554256.
+//
+// Solidity: function CanRead(a address) constant returns(bool)
+func (_WriteRequest *WriteRequestSession) CanRead(a common.Address) (bool, error) {
+	return _WriteRequest.Contract.CanRead(&_WriteRequest.CallOpts, a)
+}
+
+// CanRead is a free data retrieval call binding the contract method 0x56554256.
+//
+// Solidity: function CanRead(a address) constant returns(bool)
+func (_WriteRequest *WriteRequestCallerSession) CanRead(a common.Address) (bool, error) {
+	return _WriteRequest.Contract.CanRead(&_WriteRequest.CallOpts, a)
+}
+
 // Cs is a free data retrieval call binding the contract method 0xb6f9cf6a.
 //
 // Solidity: function Cs() constant returns(bytes)
@@ -1254,6 +1561,84 @@ func (_WriteRequest *WriteRequestSession) Cs() ([]byte, error) {
 // Solidity: function Cs() constant returns(bytes)
 func (_WriteRequest *WriteRequestCallerSession) Cs() ([]byte, error) {
 	return _WriteRequest.Contract.Cs(&_WriteRequest.CallOpts)
+}
+
+// E is a free data retrieval call binding the contract method 0x92bbf6e8.
+//
+// Solidity: function E() constant returns(bytes)
+func (_WriteRequest *WriteRequestCaller) E(opts *bind.CallOpts) ([]byte, error) {
+	var (
+		ret0 = new([]byte)
+	)
+	out := ret0
+	err := _WriteRequest.contract.Call(opts, out, "E")
+	return *ret0, err
+}
+
+// E is a free data retrieval call binding the contract method 0x92bbf6e8.
+//
+// Solidity: function E() constant returns(bytes)
+func (_WriteRequest *WriteRequestSession) E() ([]byte, error) {
+	return _WriteRequest.Contract.E(&_WriteRequest.CallOpts)
+}
+
+// E is a free data retrieval call binding the contract method 0x92bbf6e8.
+//
+// Solidity: function E() constant returns(bytes)
+func (_WriteRequest *WriteRequestCallerSession) E() ([]byte, error) {
+	return _WriteRequest.Contract.E(&_WriteRequest.CallOpts)
+}
+
+// F is a free data retrieval call binding the contract method 0x28811f59.
+//
+// Solidity: function F() constant returns(bytes)
+func (_WriteRequest *WriteRequestCaller) F(opts *bind.CallOpts) ([]byte, error) {
+	var (
+		ret0 = new([]byte)
+	)
+	out := ret0
+	err := _WriteRequest.contract.Call(opts, out, "F")
+	return *ret0, err
+}
+
+// F is a free data retrieval call binding the contract method 0x28811f59.
+//
+// Solidity: function F() constant returns(bytes)
+func (_WriteRequest *WriteRequestSession) F() ([]byte, error) {
+	return _WriteRequest.Contract.F(&_WriteRequest.CallOpts)
+}
+
+// F is a free data retrieval call binding the contract method 0x28811f59.
+//
+// Solidity: function F() constant returns(bytes)
+func (_WriteRequest *WriteRequestCallerSession) F() ([]byte, error) {
+	return _WriteRequest.Contract.F(&_WriteRequest.CallOpts)
+}
+
+// GetSlice is a free data retrieval call binding the contract method 0x5bf2abcd.
+//
+// Solidity: function GetSlice() constant returns(int64[])
+func (_WriteRequest *WriteRequestCaller) GetSlice(opts *bind.CallOpts) ([]int64, error) {
+	var (
+		ret0 = new([]int64)
+	)
+	out := ret0
+	err := _WriteRequest.contract.Call(opts, out, "GetSlice")
+	return *ret0, err
+}
+
+// GetSlice is a free data retrieval call binding the contract method 0x5bf2abcd.
+//
+// Solidity: function GetSlice() constant returns(int64[])
+func (_WriteRequest *WriteRequestSession) GetSlice() ([]int64, error) {
+	return _WriteRequest.Contract.GetSlice(&_WriteRequest.CallOpts)
+}
+
+// GetSlice is a free data retrieval call binding the contract method 0x5bf2abcd.
+//
+// Solidity: function GetSlice() constant returns(int64[])
+func (_WriteRequest *WriteRequestCallerSession) GetSlice() ([]int64, error) {
+	return _WriteRequest.Contract.GetSlice(&_WriteRequest.CallOpts)
 }
 
 // LTSID is a free data retrieval call binding the contract method 0x0fdcdbfd.
@@ -1308,6 +1693,58 @@ func (_WriteRequest *WriteRequestCallerSession) U() ([]byte, error) {
 	return _WriteRequest.Contract.U(&_WriteRequest.CallOpts)
 }
 
+// Ubar is a free data retrieval call binding the contract method 0xeeeee14d.
+//
+// Solidity: function Ubar() constant returns(bytes)
+func (_WriteRequest *WriteRequestCaller) Ubar(opts *bind.CallOpts) ([]byte, error) {
+	var (
+		ret0 = new([]byte)
+	)
+	out := ret0
+	err := _WriteRequest.contract.Call(opts, out, "Ubar")
+	return *ret0, err
+}
+
+// Ubar is a free data retrieval call binding the contract method 0xeeeee14d.
+//
+// Solidity: function Ubar() constant returns(bytes)
+func (_WriteRequest *WriteRequestSession) Ubar() ([]byte, error) {
+	return _WriteRequest.Contract.Ubar(&_WriteRequest.CallOpts)
+}
+
+// Ubar is a free data retrieval call binding the contract method 0xeeeee14d.
+//
+// Solidity: function Ubar() constant returns(bytes)
+func (_WriteRequest *WriteRequestCallerSession) Ubar() ([]byte, error) {
+	return _WriteRequest.Contract.Ubar(&_WriteRequest.CallOpts)
+}
+
+// X is a free data retrieval call binding the contract method 0xc1599bd9.
+//
+// Solidity: function X() constant returns(bytes)
+func (_WriteRequest *WriteRequestCaller) X(opts *bind.CallOpts) ([]byte, error) {
+	var (
+		ret0 = new([]byte)
+	)
+	out := ret0
+	err := _WriteRequest.contract.Call(opts, out, "X")
+	return *ret0, err
+}
+
+// X is a free data retrieval call binding the contract method 0xc1599bd9.
+//
+// Solidity: function X() constant returns(bytes)
+func (_WriteRequest *WriteRequestSession) X() ([]byte, error) {
+	return _WriteRequest.Contract.X(&_WriteRequest.CallOpts)
+}
+
+// X is a free data retrieval call binding the contract method 0xc1599bd9.
+//
+// Solidity: function X() constant returns(bytes)
+func (_WriteRequest *WriteRequestCallerSession) X() ([]byte, error) {
+	return _WriteRequest.Contract.X(&_WriteRequest.CallOpts)
+}
+
 // Data is a free data retrieval call binding the contract method 0x73d4a13a.
 //
 // Solidity: function data() constant returns(bytes)
@@ -1360,58 +1797,37 @@ func (_WriteRequest *WriteRequestCallerSession) ExtraData() ([]byte, error) {
 	return _WriteRequest.Contract.ExtraData(&_WriteRequest.CallOpts)
 }
 
-// Split is a free data retrieval call binding the contract method 0xf7654176.
+// Slice is a free data retrieval call binding the contract method 0xe6a01b5a.
 //
-// Solidity: function split() constant returns(int64)
-func (_WriteRequest *WriteRequestCaller) Split(opts *bind.CallOpts) (int64, error) {
+// Solidity: function slice( uint256) constant returns(int64)
+func (_WriteRequest *WriteRequestCaller) Slice(opts *bind.CallOpts, arg0 *big.Int) (int64, error) {
 	var (
 		ret0 = new(int64)
 	)
 	out := ret0
-	err := _WriteRequest.contract.Call(opts, out, "split")
+	err := _WriteRequest.contract.Call(opts, out, "slice", arg0)
 	return *ret0, err
 }
 
-// Split is a free data retrieval call binding the contract method 0xf7654176.
+// Slice is a free data retrieval call binding the contract method 0xe6a01b5a.
 //
-// Solidity: function split() constant returns(int64)
-func (_WriteRequest *WriteRequestSession) Split() (int64, error) {
-	return _WriteRequest.Contract.Split(&_WriteRequest.CallOpts)
+// Solidity: function slice( uint256) constant returns(int64)
+func (_WriteRequest *WriteRequestSession) Slice(arg0 *big.Int) (int64, error) {
+	return _WriteRequest.Contract.Slice(&_WriteRequest.CallOpts, arg0)
 }
 
-// Split is a free data retrieval call binding the contract method 0xf7654176.
+// Slice is a free data retrieval call binding the contract method 0xe6a01b5a.
 //
-// Solidity: function split() constant returns(int64)
-func (_WriteRequest *WriteRequestCallerSession) Split() (int64, error) {
-	return _WriteRequest.Contract.Split(&_WriteRequest.CallOpts)
-}
-
-// GetPolicySize is a paid mutator transaction binding the contract method 0xecc0f871.
-//
-// Solidity: function getPolicySize() returns(uint256)
-func (_WriteRequest *WriteRequestTransactor) GetPolicySize(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _WriteRequest.contract.Transact(opts, "getPolicySize")
-}
-
-// GetPolicySize is a paid mutator transaction binding the contract method 0xecc0f871.
-//
-// Solidity: function getPolicySize() returns(uint256)
-func (_WriteRequest *WriteRequestSession) GetPolicySize() (*types.Transaction, error) {
-	return _WriteRequest.Contract.GetPolicySize(&_WriteRequest.TransactOpts)
-}
-
-// GetPolicySize is a paid mutator transaction binding the contract method 0xecc0f871.
-//
-// Solidity: function getPolicySize() returns(uint256)
-func (_WriteRequest *WriteRequestTransactorSession) GetPolicySize() (*types.Transaction, error) {
-	return _WriteRequest.Contract.GetPolicySize(&_WriteRequest.TransactOpts)
+// Solidity: function slice( uint256) constant returns(int64)
+func (_WriteRequest *WriteRequestCallerSession) Slice(arg0 *big.Int) (int64, error) {
+	return _WriteRequest.Contract.Slice(&_WriteRequest.CallOpts, arg0)
 }
 
 // WriteRequestHolderABI is the input ABI used to generate the binding from.
 const WriteRequestHolderABI = "[{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"addWriteRequest\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"canRead\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"a\",\"type\":\"address\"}],\"name\":\"getRequestByID\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"hasRequest\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"wrmap\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
 
 // WriteRequestHolderBin is the compiled bytecode used for deploying new contracts.
-const WriteRequestHolderBin = `0x608060405234801561001057600080fd5b5061022d806100206000396000f30060806040526004361061006c5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631029a017811461007157806342087d4f14610094578063b7312591146100c9578063e216ea2b14610106578063ed85db2314610127575b600080fd5b34801561007d57600080fd5b50610092600160a060020a0360043516610148565b005b3480156100a057600080fd5b506100b5600160a060020a0360043516610195565b604080519115158252519081900360200190f35b3480156100d557600080fd5b506100ea600160a060020a03600435166101b3565b60408051600160a060020a039092168252519081900360200190f35b34801561011257600080fd5b506100b5600160a060020a03600435166101d1565b34801561013357600080fd5b506100ea600160a060020a03600435166101e6565b600160a060020a0316600081815260208181526040808320805473ffffffffffffffffffffffffffffffffffffffff1916909417909355600190819052919020805460ff19169091179055565b600160a060020a031660009081526001602052604090205460ff1690565b600160a060020a039081166000908152602081905260409020541690565b60016020526000908152604090205460ff1681565b600060208190529081526040902054600160a060020a0316815600a165627a7a7230582078ed601c0ffe48ff28c6c456e53e2b4ceb479c61a86ea803dea5c433fb5d80170029`
+const WriteRequestHolderBin = `0x608060405234801561001057600080fd5b50610281806100206000396000f3fe608060405260043610610066577c010000000000000000000000000000000000000000000000000000000060003504631029a017811461006b57806342087d4f146100a0578063b7312591146100e7578063e216ea2b14610136578063ed85db2314610169575b600080fd5b34801561007757600080fd5b5061009e6004803603602081101561008e57600080fd5b5035600160a060020a031661019c565b005b3480156100ac57600080fd5b506100d3600480360360208110156100c357600080fd5b5035600160a060020a03166101e9565b604080519115158252519081900360200190f35b3480156100f357600080fd5b5061011a6004803603602081101561010a57600080fd5b5035600160a060020a0316610207565b60408051600160a060020a039092168252519081900360200190f35b34801561014257600080fd5b506100d36004803603602081101561015957600080fd5b5035600160a060020a0316610225565b34801561017557600080fd5b5061011a6004803603602081101561018c57600080fd5b5035600160a060020a031661023a565b600160a060020a0316600081815260208181526040808320805473ffffffffffffffffffffffffffffffffffffffff1916909417909355600190819052919020805460ff19169091179055565b600160a060020a031660009081526001602052604090205460ff1690565b600160a060020a039081166000908152602081905260409020541690565b60016020526000908152604090205460ff1681565b600060208190529081526040902054600160a060020a03168156fea165627a7a723058203b9df46251225a5f4dc7da4ac5584c6e551532fcf505f47a682c49c7a8469e8b0029`
 
 // DeployWriteRequestHolder deploys a new Ethereum contract, binding an instance of WriteRequestHolder to it.
 func DeployWriteRequestHolder(auth *bind.TransactOpts, backend bind.ContractBackend) (common.Address, *types.Transaction, *WriteRequestHolder, error) {

@@ -1,0 +1,15 @@
+[[servers]]
+  Address = "tls://localhost:7002"
+  Suite = "Ed25519"
+  Public = "da3dcd0d189975990e2ad1fe4fb2936315e4906277eb4e1110372a74c915b6fc"
+  Description = "Conode_1"
+[[servers]]
+  Address = "tls://localhost:7004"
+  Suite = "Ed25519"
+  Public = "d2286abf9c1cda134b0fcad84acb5527525a98812a7ff63ddcbd1424dc62aecd"
+  Description = "Conode_2"
+[[servers]]
+  Address = "tls://localhost:7006"
+  Suite = "Ed25519"
+  Public = "fbc2d62ef1d208ad07ddd48bc26b3679671318fbe2964c2a34541f43f63da0b5"
+  Description = "Conode_3"

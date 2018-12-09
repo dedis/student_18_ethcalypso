@@ -1,12 +1,15 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.1;
 
 
 contract Owners {
     address[] private owners;
     mapping(address => bool) private ownersMap;
 
-    constructor() public {
-        
+    constructor(address[] memory a) public {
+        owners = a;
+        for(uint32 i = 0;i < a.length;i++) {
+            ownersMap[a[i]] = true;
+        }
     }
 
     function getNrOwners() public view returns (uint256) {

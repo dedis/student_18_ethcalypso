@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.1;
 
 import "./Owners.sol";
 import "./WriteRequestHolder.sol";
@@ -19,14 +19,14 @@ contract Calypso {
     //This is a mapping that maps the hash of a request to the
     //associated WriteRequest of that hash
     
-    function Calypso(address holder, address rrholder, address o) public {
+    constructor(address holder, address rrholder, address o) public {
         owners = Owners(o);
         wrHolder = WriteRequestHolder(holder);
         rrHolder = ReadRequestHolder(rrholder);
     }
 
     function canWrite(address a) public view returns (bool) {
-        return ownersMap[a];
+        return owners.canWrite(a);
     }
 
     function addWriteRequest(address a) public {
@@ -51,7 +51,13 @@ contract Calypso {
     }
 
     function isValidReadRequest(address a)  public view returns (bool) {
-        return rrHolder.hasReadRequest(a);
+        /*require(rrHolder.hasReadRequest(a), "It must at first be a valid read request.");
+        */
+        ReadRequest rr = ReadRequest(a);
+        address wrA = rr.writeRequest();
+        WriteRequest wr = WriteRequest(wrA);
+        require(wr.CanRead(rr.owner()), "Is this a member of the policy of the pointed WriteRequest");
+        return true;
     }
 
 }

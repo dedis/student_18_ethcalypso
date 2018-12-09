@@ -15,7 +15,6 @@ import (
 	"time"
 
 	"github.com/dedis/cothority"
-	"github.com/dedis/cothority/byzcoin"
 	"github.com/dedis/cothority/darc"
 	dkgprotocol "github.com/dedis/cothority/dkg"
 	"github.com/dedis/kyber"
@@ -29,8 +28,6 @@ import (
 	"github.com/dedis/student_18_ethcalypso/calypso/ethereum"
 	"github.com/dedis/student_18_ethcalypso/calypso/protocol"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/ethclient"
 )
 
 // Used for tests
@@ -45,6 +42,9 @@ const propagationTimeout = 10 * time.Second
 func init() {
 	var err error
 	calypsoID, err = onet.RegisterNewService(ServiceName, newService)
+	if err != nil {
+		fmt.Println("Error in service student")
+	}
 	log.ErrFatal(err)
 	network.RegisterMessages(&storage1{}, &vData{})
 }
@@ -68,6 +68,14 @@ type vData struct {
 	ETHReadAddress common.Address
 	Ephemeral      kyber.Point
 	Signature      *darc.Signature
+}
+
+//LogAddress takes in an address of a deployed contract
+//and stores it in the storage of the LTS
+func (s *Service) LogAddress(la *LogAddress) (lr *LogAddressReply, err error) {
+	fmt.Println("Bjorn this function worked")
+	lr = &LogAddressReply{Added: true}
+	return lr, nil
 }
 
 // CreateLTS takes as input a roster with a list of all nodes that should
@@ -103,7 +111,7 @@ func (s *Service) CreateLTS(cl *CreateLTS) (reply *CreateLTSReply, err error) {
 		}
 		s.storage.Polys[string(reply.LTSID)] = &pubPoly{s.Suite().Point().Base(), dks.Commits}
 		s.storage.Rosters[string(reply.LTSID)] = &cl.Roster
-		s.storage.OLIDs[string(reply.LTSID)] = cl.BCID
+		s.storage.ContractAddresses[string(reply.LTSID)] = cl.CalypsoAddress
 		s.storage.Unlock()
 		reply.X = shared.X
 	case <-time.After(propagationTimeout):
@@ -133,42 +141,36 @@ func compare(a, b []byte) bool {
 // TODO: support ephemeral keys.
 func (s *Service) DecryptKey(dkr *DecryptKey) (reply *DecryptKeyReply, err error) {
 	privateKey, e := ethereum.GetPrivateKey()
+	client, e := ethereum.GetClient()
 	if e != nil {
-		return nil, e
-	}
-	client, e := ethclient.Dial("http://127.0.0.1:7545")
-	if e != nil {
-		return nil, e
-	}
-	defer client.Close()
-	from, err := crypto.HexToECDSA("1944dae12efeb1b1107dc1f3c7a459a01d865fff1c4b43a26f1755876aa1b820")
-	if err != nil {
 		return nil, e
 	}
 	reply = &DecryptKeyReply{}
-	log.Lvl2("Re-encrypt the key to the public key of the reader")
 	wAddress := dkr.Write
 	rAddress := dkr.Read
-
-	write, e := gocontracts.ServiceGetWriteRequest(from, client, wAddress)
+	readHash := dkr.ReadHash
+	isReadMined, e := gocontracts.IsMined(client, readHash)
+	if !isReadMined || e != nil {
+		return nil, errors.New("Read was not mined")
+	}
+	write, e := gocontracts.ServiceGetWriteRequest(privateKey, client, wAddress)
 	if e != nil {
 		return nil, e
 	}
-	read, e := gocontracts.ServiceGetRead(rAddress, client, from)
+	read, e := gocontracts.ServiceGetRead(rAddress, client, privateKey)
 	if e != nil {
-		fmt.Println("Read")
 		return nil, e
+	}
+	writeHash := common.BytesToHash(read.WriteHash)
+	isWriteMined, e := gocontracts.IsMined(client, writeHash)
+	if !isWriteMined || e != nil {
+		return nil, errors.New("The write was not mined")
 	}
 	if !compare(read.Write.Bytes(), wAddress.Bytes()) {
 		return nil, errors.New("This read did not point to this write")
 	}
-	c, e := gocontracts.GetStaticCalypso()
-	if e != nil {
-		return nil, e
-	}
-	cal := *c
+	cal := s.storage.ContractAddresses[string(write.LTSID)]
 	canRead := gocontracts.ServiceCheckIfCanRead(privateKey, cal, rAddress, client)
-	fmt.Println("Checked if I can read")
 	if !canRead {
 		return nil, errors.New("This is not a valid read/write pair")
 	}
@@ -185,16 +187,6 @@ func (s *Service) DecryptKey(dkr *DecryptKey) (reply *DecryptKeyReply, err error
 	copy(scID, s.storage.OLIDs[string(write.LTSID)])
 	s.storage.Unlock()
 
-	/*From here
-	if err = dkr.Read.Verify(scID); err != nil {
-		return nil, errors.New("read proof cannot be verified to come from scID: " + err.Error())
-	}
-	if err = dkr.Write.Verify(scID); err != nil {
-		return nil, errors.New("write proof cannot be verified to come from scID: " + err.Error())
-	}
-	To here I think I can not perform currently.
-	*/
-
 	// Start ocs-protocol to re-encrypt the file's symmetric key under the
 	// reader's public key.
 	nodes := len(roster.List)
@@ -206,7 +198,6 @@ func (s *Service) DecryptKey(dkr *DecryptKey) (reply *DecryptKeyReply, err error
 	}
 	ocsProto := pi.(*protocol.OCS)
 	//I'll need U. I have U.
-	fmt.Println("WRite U", write.U)
 	ocsProto.U = write.U
 
 	verificationData := &vData{
@@ -314,6 +305,7 @@ func (s *Service) verifyReencryption(rc *protocol.Reencrypt) bool {
 		if e != nil {
 			return e
 		}
+
 		client, e := ethereum.GetClient()
 		if e != nil {
 			return nil
@@ -323,10 +315,12 @@ func (s *Service) verifyReencryption(rc *protocol.Reencrypt) bool {
 		if e != nil {
 			return e
 		}
-		r, e := gocontracts.ServiceGetRead(verificationData.ETHReadAddress, client, privateKey)
+		rr := verificationData.ETHReadAddress
+		r, e := gocontracts.ServiceGetRead(rr, client, privateKey)
 		if e != nil {
 			return e
 		}
+
 		if verificationData.Ephemeral != nil {
 			return errors.New("ephemeral keys not supported yet")
 		}
@@ -349,14 +343,16 @@ func newService(c *onet.Context) (onet.Service, error) {
 	s := &Service{
 		ServiceProcessor: onet.NewServiceProcessor(c),
 	}
-	if err := s.RegisterHandlers(s.CreateLTS, s.DecryptKey, s.SharedPublic); err != nil {
+	if err := s.RegisterHandlers(s.CreateLTS, s.DecryptKey, s.SharedPublic, s.LogAddress); err != nil {
 		return nil, errors.New("couldn't register messages")
 	}
-	byzcoin.RegisterContract(c, ContractWriteID, s.ContractWrite)
-	byzcoin.RegisterContract(c, ContractReadID, s.ContractRead)
+	//byzcoin.RegisterContract(c, ContractWriteID, s.ContractWrite)
+	//byzcoin.RegisterContract(c, ContractReadID, s.ContractRead)
 	if err := s.tryLoad(); err != nil {
 		log.Error(err)
 		return nil, err
 	}
+	s.storage.ContractAddresses = make(map[string]common.Address)
+	s.storage.ContractTx = make(map[string][]byte)
 	return s, nil
 }
